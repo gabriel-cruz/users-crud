@@ -17,4 +17,4 @@ Route::group(['middleware' => 'web'], function (){
     Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 });
 
-Route::get('/users', 'UserController@index');
+Route::get('/users', 'App\Http\Controllers\UserController@index');
