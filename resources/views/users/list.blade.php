@@ -7,7 +7,7 @@
             <div class="card">
 
                 <div class="card-body">
-                    <div class="card-header">{{ __('Dashboard') }}</div>
+                    <div class="card-header"><a href="{{ url('users/create') }}">Novo Usuário</a></div>
 
                     <h1>Lista de usuários</h1>
                     @foreach ($users as $user)
