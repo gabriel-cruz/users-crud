@@ -19,3 +19,4 @@ Route::group(['middleware' => 'web'], function (){
 
 Route::get('/users', 'App\Http\Controllers\UserController@index');
 Route::get('/users/create', 'App\Http\Controllers\UserController@create');
+Route::post('/users/add', 'App\Http\Controllers\UserController@add')

@@ -11,7 +11,8 @@
 
                 <div class="card-body">
 
-                    <form>
+                    <form action="{{ url('usuarios/add') }}" method post>
+                    @csrf
                     @livewireStyles
                         <div class="form-row">
                             <div class="form-group col-md-6">

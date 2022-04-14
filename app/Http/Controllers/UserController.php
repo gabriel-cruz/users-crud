@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Http;
+use Redirect;
 use App\Models\User;
 
 
@@ -35,5 +36,13 @@ class UserController extends Controller
         return view('users.form' , 
         ['states' => $states,
           'cities' => $cities]);
+    }
+
+    public function add(Request $request){
+        $user = new User;
+        $user = $user->create($request->all());
+
+        return Redirect::to('/users');
+
     }
 }
