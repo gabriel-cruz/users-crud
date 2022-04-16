@@ -9,9 +9,36 @@
                 
                 <div class="card-body">
                     <h1>Lista de usuários</h1>
+
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                            <th scope="col">#</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">E-mail</th>
+                            <th scope="col">Editar</th>
+                            <th scope="col">Deletar</th>
+                            </tr>
+                        </thead>
+                        <tbody>
                     @foreach ($users as $user)
-                    <p>{{ $user->name }}</p>
+                            <tr>
+                            <th scope="row">{{ $user->id }}</th>
+                            <td>
+                               <a href="{{ url('users/profile') }}">{{$user->name}}</a>
+                            </td>
+                            <td>{{$user->email}}</td>
+                            <td>
+                                <button class="btn btn-info">Editar</button>
+                            </td>
+                            <td>
+                                <button class="btn btn-danger">Deletar</button>
+                            </td>
+                            </tr>
+                            
                     @endforeach
+                    </tbody>
+                        </table>
                 </div>
             </div>
         </div>
