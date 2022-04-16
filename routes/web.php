@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,5 @@ Route::group(['middleware' => 'web'], function (){
 
 Route::get('/users', 'App\Http\Controllers\UserController@index');
 Route::get('/users/create', 'App\Http\Controllers\UserController@create');
-Route::post('/users/add', 'App\Http\Controllers\UserController@add')
+Route::post('/load_cities', 'App\Http\Controllers\UserController@loadCities');
+Route::post('/users/add', 'App\Http\Controllers\UserController@add');

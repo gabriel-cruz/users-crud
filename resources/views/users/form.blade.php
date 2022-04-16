@@ -11,9 +11,8 @@
 
                 <div class="card-body">
 
-                    <form action="{{ url('usuarios/add') }}" method post>
+                    <form id="form" method = "post" action="">
                     @csrf
-                    @livewireStyles
                         <div class="form-row">
                             <div class="form-group col-md-6">
                                 <label for="inputEmail4">Nome</label>
@@ -45,29 +44,24 @@
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">
-                            <label for="inputState">Estado</label>
-                            <select wire:model="state" id="inputState" name="state" class="form-control">
+                            <label for="state_id">Estado</label>
+                            <select id="state_id" name="state" class="form-control">
                                 <option value="" selected>{{__('Selecione um Estado...')}}</option>
                                 @foreach($states as $state)
-                                    <option value="{{$state->sigla}}">{{$state->nome}}</option>
+                                    <option value="{{$state->id}}">{{$state->name}}</option>
                                 @endforeach
-                            </select>   
+                            </select>  
+                            </select>  
                             </div>
 
                             <div class="form-group col-md-6">
-                            <label for="inputCity">Cidade</label>
-                            <select id="inputCity" name="city" class="form-control">
+                            <label for="city_id">Cidade</label>
+                            <select id="city_id" name="city" class="form-control">
                             <option value="" selected>{{__('Selecione uma Cidade...')}}</option>
-                                @if($this->state)
-                                @foreach($cities as $city)
-                                    <option value="{{$city->id}}">{{$city->nome}}</option>
-                                @endforeach
-                                @endif
 
                             </select>
                             </div>
                         </div>
-                        @livewireScripts
                         <button type="submit" class="btn btn-primary">Enviar</button>
                     </form>
                 </div>
@@ -75,4 +69,20 @@
         </div>
     </div>
 </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+jQuery(document).ready(function(){
+    jQuery('#state_id').change(function(){
+        let stateId = jQuery(this).val();
+        jQuery.ajax({
+            url: '/load_cities',
+            type: 'post',
+            data: 'stateId='+stateId+'&_token={{csrf_token()}}',
+            success: function(result){
+                jQuery('#city_id').html(result) 
+            }
+        });
+    });
+});
+</script>
 @endsection
