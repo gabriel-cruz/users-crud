@@ -11,7 +11,7 @@
 
                 <div class="card-body">
 
-                    <form id="form" method = "post" action="">
+                    <form id="form" method = "post" action="{{url('users/add')}}" method = "post">
                     @csrf
                         <div class="form-row">
                             <div class="form-group col-md-6">
@@ -40,7 +40,7 @@
                         </div>
                         <div class="form-group">
                             <label for="inputAddress">Endereço</label>
-                            <input type="text" name="address" class="form-control" id="inputAddress" placeholder="1234 Main St">
+                            <input type="text" name="address" class="form-control" id="inputAddress">
                         </div>
                         <div class="form-row">
                             <div class="form-group col-md-4">

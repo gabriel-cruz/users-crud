@@ -17,12 +17,13 @@ class CreateUsersTable extends Migration
             $table->id();
             $table->string('name');
             $table->string('cpf')->unique();
-            $table->string('dt_birth');
             $table->string('email')->unique();
+            $table->string('dt_birth');
             $table->string('tel');
             $table->string('address');
             $table->string('city');
             $table->string('state');
+            $table->timestamps();
         });
     }
 

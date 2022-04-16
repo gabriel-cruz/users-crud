@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
-use Redirect;
+use Illuminate\Support\Facades\Redirect;
 use App\Models\User;
 use App\Models\State;
 use App\Models\City;
@@ -38,11 +38,13 @@ class UserController extends Controller
         foreach ($city as $list){
             $html.='<option value="'.$list->id.'">'.$list->name.'</option>';
         }
+        echo $html;
+    }
 
-        // $dataForm = $request->all();
-        // $state_id = $dataForm['state_id'];
+    public function add(Request $request){
+        $user = new User();
+        $user = $user->create($request->all());
 
-        
-        // return $cities;
+        return Redirect::to('/users');
     }
 }
