@@ -18,7 +18,15 @@ Route::group(['middleware' => 'web'], function (){
     Route::get('/home', 'App\Http\Controllers\HomeController@index')->name('home');
 });
 
+//GET
 Route::get('/users', 'App\Http\Controllers\UserController@index');
 Route::get('/users/create', 'App\Http\Controllers\UserController@create');
+Route::get('/users/{id}/profile', 'App\Http\Controllers\UserController@get');
+Route::get('/users/{id}/edit', 'App\Http\Controllers\UserController@edit');
+
+//POST
 Route::post('/load_cities', 'App\Http\Controllers\UserController@loadCities');
+Route::post('/users/update/{id}', 'App\Http\Controllers\UserController@update');
 Route::post('/users/add', 'App\Http\Controllers\UserController@add');
+
+Route::delete('/users/delete/{id}', 'App\Http\Controllers\UserController@delete');
