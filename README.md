@@ -13,6 +13,6 @@ Após laravel baixado, abra o projeto e rode o comando  ``composer update`` na r
 1.2. É necessário criar uma database para que as migrations sejam executadas.
 2. Para configurar as migrations do projeto, execute o comando ``php artisan migrate``;
 3. Para popular o banco de dados por meio das seeds, execute o comando ``php artisan db:seed``;
-4.1. Se faz necessário rodar as seeds das classes ``StatesSeeder`` e ``CitiesSeeder`` individualmente
+3.1. Se faz necessário rodar as seeds das classes ``StatesSeeder`` e ``CitiesSeeder`` individualmente
     para isso, rode os comandos ``php artisan db:seed --class=StatesSeeder`` e ``php artisan db:seed --class=CitiesSeeder`` no terminal.
-5. Para rodar o servidor Laravel, execute o comando ``php artisan serve`` na pasta do projeto.
+4. Para rodar o servidor Laravel, execute o comando ``php artisan serve`` na pasta do projeto.
