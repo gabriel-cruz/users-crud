@@ -30,7 +30,7 @@
                         <div class="form-group"> 
                             <div class="form-group col-md-6">
                                 <label for="inputBirth">Data de Nascimento</label>
-                                <input type="text" name="dt_bith" class="form-control" id="inputBirth" placeholder="Ex: DD/MM/YYYY">
+                                <input type="text" name="dt_birth" class="form-control" id="inputBirth" placeholder="Ex: DD/MM/YYYY">
                             </div>
 
                             <div class="form-group col-md-6">

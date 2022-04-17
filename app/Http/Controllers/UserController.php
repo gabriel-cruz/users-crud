@@ -19,6 +19,7 @@ class UserController extends Controller
 
     public function index(){
         $users = User::get();
+
         return view('users.list', ['users' => $users]);
     }
 
@@ -45,6 +46,28 @@ class UserController extends Controller
         $user = new User();
         $user = $user->create($request->all());
 
+        return Redirect::to('/users');
+    }
+
+    public function get($id){
+        $user = User::findOrFail($id );
+        return view('users.profile', ['user' => $user]);
+    }
+
+    public function edit($id){
+        $user = User::findOrFail($id );
+        return view('users.edit', ['user' => $user]);
+    }
+
+    public function update( $id, Request $request ){
+        $user = User::findOrFail( $id );
+        $user->update( $request->all() );
+        return Redirect::to('/users');
+    }
+
+    public function delete( $id ){
+        $user = User::findOrFail( $id );
+        $user->delete();
         return Redirect::to('/users');
     }
 }
