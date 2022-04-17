@@ -25,20 +25,24 @@
                             <tr>
                             <th scope="row">{{ $user->id }}</th>
                             <td>
-                               <a href="{{ url('users/profile') }}">{{$user->name}}</a>
+                                <a href="users/{{ $user->id }}/profile">{{$user->name}}</a>
                             </td>
                             <td>{{$user->email}}</td>
                             <td>
-                                <button class="btn btn-info">Editar</button>
+                                <a href="users/{{ $user->id }}/edit" class="btn btn-info">Editar</a>
                             </td>
                             <td>
-                                <button class="btn btn-danger">Deletar</button>
+                                <form action="users/delete/{{ $user->id }}" method="post">
+                                    @csrf
+                                    @method('delete')
+                                    <button class="btn btn-danger">Deletar</button>
+                                </form>
                             </td>
                             </tr>
                             
                     @endforeach
                     </tbody>
-                        </table>
+                </table>
                 </div>
             </div>
         </div>
